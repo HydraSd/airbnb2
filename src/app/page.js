@@ -7,56 +7,15 @@ import SmallCard from "@/components/SmallCard";
 
 import Footer from "@/components/Footer";
 
-export default function Home({ exploreData }) {
- 
-  const data = [
-    {
-      img: "https://links.papareact.com/5j2",
-      location: "London",
-      distance: "45-minute drive",
-    },
-    {
-      img: "https://links.papareact.com/1to",
-      location: "Manchester",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/40m",
-      location: "Liverpool",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/msp",
-      location: "York",
-      distance: "4-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/2k3",
-      location: "Cardiff",
-      distance: "45-minute drive",
-    },
-    {
-      img: "https://links.papareact.com/ynx",
-      location: "Birkenhead",
-      distance: "4.5-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/kji",
-      location: "Newquay",
-      distance: "6-hour drive",
-    },
-    {
-      img: "https://links.papareact.com/41m",
-      location: "Hove",
-      distance: "2-hour drive",
-    },
-  ];
-  const data2 = [
-    { img: "https://links.papareact.com/2io", title: "Outdoor getaways" },
-    { img: "https://links.papareact.com/q7j", title: "Unique stays" },
-    { img: "https://links.papareact.com/s03", title: "Entire homes" },
-    { img: "https://links.papareact.com/8ix", title: "Pet allowed" },
-  ];
+export default async function Home() {
+    const exploreData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
+    (res) => res.json()
+  );
+  
+  const exploreData2 = await fetch("https://www.jsonkeeper.com/b/VHHT").then(
+    (res) => res.json()
+  );
+
   return (
     <div>
       
@@ -68,7 +27,7 @@ export default function Home({ exploreData }) {
 
           {/* Pull data from a sever */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {data?.map((item) => (
+            {exploreData?.map((item) => (
               <SmallCard
                 key={item.img}
                 img={item.img}
@@ -81,7 +40,7 @@ export default function Home({ exploreData }) {
         <section>
           <h2 className="text-4xl font-semibold py-5">Live Anywhere</h2>
           <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3">
-          {data2?.map((item) => (
+          {exploreData2?.map((item) => (
             <MediumCard 
               key={item.img}
               img={item.img}
@@ -102,17 +61,17 @@ export default function Home({ exploreData }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const exploreData = await fetch("https://links.papareact.com/pyp").then(
-//     (res) => res.json()
-//   );
-//   console.log(exploreData);
-//   return {
-//     props: {
-//       exploreData,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  const exploreData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
+    (res) => res.json()
+  );
+  console.log(exploreData);
+  return {
+    props: {
+      exploreData,
+    },
+  };
+}
 
 // async function getData() {
 //   const exploreData = await fetch("https://links.papareact.com/pyp").then(

@@ -7,11 +7,9 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/navigation";
 
-
-function Header() {
-
+function Header({placeholder}) {
   const router = useRouter();
- 
+
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endtDate, setEndtDate] = useState(new Date());
@@ -33,17 +31,17 @@ function Header() {
   };
 
   const search = () => {
-    router.push(`/search/${startDate}/${endtDate}/${searchInput}/${numberOfGuests}`)
- 
-  }
+    router.push(
+      `/search/${startDate}/${endtDate}/${searchInput}/${numberOfGuests}`
+    );
+  };
 
   return (
-
     <header className="sticky bg-white top-0 z-50 grid grid-cols-2 md:grid-cols-3 bg-red-white shadow-md p-5 md:px-10">
       {/* left side */}
-     
+
       <div
-        onClick={() => router.push("/home")}
+        onClick={() => router.push("/")}
         className="relative flex items-center h-8 cursor-pointer my-auto"
       >
         <Image
@@ -62,7 +60,7 @@ function Header() {
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +158,9 @@ function Header() {
             <button className="flex-grow text-gray-500" onClick={resetInput}>
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-red-500">Search</button>
+            <button onClick={search} className="flex-grow text-red-500">
+              Search
+            </button>
           </div>
         </div>
       )}
