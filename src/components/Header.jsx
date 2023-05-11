@@ -43,7 +43,7 @@ function Header() {
       {/* left side */}
      
       <div
-        onClick={() => router.push("/")}
+        onClick={() => router.push("/home")}
         className="relative flex items-center h-8 cursor-pointer my-auto"
       >
         <Image

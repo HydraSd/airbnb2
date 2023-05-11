@@ -1,5 +1,5 @@
 import LargeCard from "@/components/LargeCard";
-import Header from "../components/Header";
+import Header from "@/components/Header";
 import Banner from "@/components/Banner";
 import MediumCard from "@/components/MediumCard";
 import SmallCard from "@/components/SmallCard";
