@@ -4,9 +4,11 @@ import Banner from "@/components/Banner";
 import MediumCard from "@/components/MediumCard";
 import SmallCard from "@/components/SmallCard";
 
+
 import Footer from "@/components/Footer";
 
 export default function Home({ exploreData }) {
+ 
   const data = [
     {
       img: "https://links.papareact.com/5j2",
@@ -57,6 +59,7 @@ export default function Home({ exploreData }) {
   ];
   return (
     <div>
+      
       <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
