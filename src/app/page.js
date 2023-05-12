@@ -18,7 +18,6 @@ export default async function Home() {
 
   return (
     <div>
-      {/* done */}
       <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
@@ -61,23 +60,14 @@ export default async function Home() {
   );
 }
 
-export async function getStaticProps() {
-  const exploreData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
-    (res) => res.json()
-  );
-  console.log(exploreData);
-  return {
-    props: {
-      exploreData,
-    },
-  };
-}
-
-// async function getData() {
-//   const exploreData = await fetch("https://links.papareact.com/pyp").then(
+// export async function getStaticProps() {
+//   const exploreData = await fetch("https://www.jsonkeeper.com/b/4G1G").then(
 //     (res) => res.json()
 //   );
-//   return exploreData
+//   console.log(exploreData);
+//   return {
+//     props: {
+//       exploreData,
+//     },
+//   };
 // }
-
-// https://links.papareact.com/zp1
